@@ -74,7 +74,7 @@ export const projects: Project[] = [
     tags: ['Package Design'],
     cover: '/images/projects/project-04/cover.jpg',
     description:
-      'Eksplorasi desain kemasan untuk minuman kaleng ARCADE, memadukan elemen visual retro dan tipografi berani untuk menciptakan identitas yang playful, energik, dan mudah dikenali.',
+      'Eksplorasi desain kemasan untuk minuman kaleng ARCADE, memadukan elemen visual dan tipografi berani untuk menciptakan identitas yang playful, energik, dan mudah dikenali.',
     role: 'Package Design',
     tools: ['Affinity Designer'],
     credits: 'Zhafran A Syafiq — design',
