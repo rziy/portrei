@@ -60,7 +60,7 @@ export const projects: Project[] = [
       'Eksperimen visual untuk poster produk Air Jordan Retro High OG, memadukan tipografi tegas dan komposisi dinamis untuk menonjolkan karakter ikonik serta energi dari siluet klasiknya.',
     role: 'Graphic Design',
     tools: ['Affinity Designer'],
-    credits: 'Zhafran A Syafiq — illustration, design',
+    credits: 'Zhafran A Syafiq — design',
     images: [
       '/images/projects/project-03/01.webp',
       '/images/projects/project-03/02.webp',
