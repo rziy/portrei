@@ -20,15 +20,6 @@ export default function Contact() {
         <a className="contact__email" href="mailto:zsyfiq001@gmail.com">
           <span>zsyfiq001@gmail.com</span><b>↗</b>
         </a>
-
-        <div className="contact__bottom">
-          <div><span>NOT AVAILABLE FOR</span><p>Freelance / Collaborations<br />Selected student projects</p></div>
-          <div><span>FIND ME</span><p>{socials.map(s => <a href={s.url} key={s.name} target="_blank" rel="noreferrer">{s.name} ↗</a>)}</p></div>
-          <div className="contact__stamp" aria-hidden="true">
-            OPEN
-            <small>SINCE 2026</small>
-          </div>
-        </div>
       </section>
     </main>
   )
