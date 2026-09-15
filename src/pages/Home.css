@@ -1,0 +1,224 @@
+.stage {
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to right, rgba(17,17,17,.035) 1px, transparent 1px);
+  background-size: 80px 100%;
+}
+
+.stage__index,
+.stage__aside,
+.counter {
+  position: absolute;
+  z-index: 90;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.stage__index { top: 30px; right: 84px; color: var(--grey); }
+.stage__aside { left: 29px; bottom: 104px; line-height: 1.55; color: var(--grey); }
+
+.stage__rule {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  width: 120px;
+  height: 1px;
+  background: var(--ink);
+  opacity: .18;
+}
+
+.wordmark {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+  width: min(650px, 90vw);
+}
+
+.wordmark__tiny {
+  display: block;
+  font-size: 9px;
+  letter-spacing: .22em;
+  color: var(--grey);
+  margin-bottom: 10px;
+}
+
+.wordmark h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(70px, 12vw, 148px);
+  line-height: .78;
+  letter-spacing: -.07em;
+  font-weight: 700;
+}
+
+.wordmark p {
+  margin: 22px 0 0;
+  font-size: 11px;
+  letter-spacing: .18em;
+  color: var(--grey);
+}
+
+.home-note {
+  position: absolute;
+  font-family: var(--font-hand);
+  font-size: 15px;
+}
+.home-note--lime { top: 31%; right: 26%; transform: rotate(-3deg); }
+.home-note--pink { top: 58%; right: 8%; transform: rotate(5deg); }
+.home-note--blue { bottom: 7%; left: 50%; transform: rotate(-2deg); }
+
+.paper-note {
+  display: block;
+  width: 140px;
+  min-height: 116px;
+  padding: 18px 16px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-hand);
+  font-size: 19px;
+  line-height: 1.02;
+  box-shadow: 4px 6px 12px rgba(17,17,17,.10);
+}
+.paper-note span { display:block; margin-top: 14px; font-size: 13px; text-align: right; }
+.paper-note--yellow { background: var(--lime); }
+.paper-note--white { background: var(--white); border: 1px solid #ddd; }
+
+.taped-photo {
+  position: relative;
+  width: 188px;
+  padding: 10px 10px 14px;
+  background: var(--white);
+  box-shadow: 3px 6px 15px rgba(17,17,17,.13);
+}
+.taped-photo img { width:100%; aspect-ratio: 4/5; display:block; object-fit:cover; background:#ddd; }
+.taped-photo small { display:block; margin-top:8px; font-size:9px; letter-spacing:.06em; }
+
+.tape {
+  position:absolute;
+  z-index:2;
+  width:62px;
+  height:17px;
+  left:50%;
+  transform:translateX(-50%) rotate(-2deg);
+  background:rgba(240,226,181,.72);
+  mix-blend-mode:multiply;
+}
+.tape--top { top:-9px; }
+
+.mini-poster {
+  position:relative;
+  display:block;
+  width:150px;
+  text-decoration:none;
+  color:var(--white);
+  background:var(--ink);
+  box-shadow:4px 6px 12px rgba(17,17,17,.12);
+  overflow:hidden;
+}
+.mini-poster img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; }
+.mini-poster span { position:absolute; inset:auto 10px 10px; font-family:var(--font-display); font-weight:700; font-size:15px; line-height:.88; }
+.mini-poster--small { width:132px; }
+
+.sketch-paper {
+  width:142px;
+  height:158px;
+  background:#fff;
+  border:1px solid #ddd;
+  padding:12px;
+  position:relative;
+  box-shadow:3px 5px 11px rgba(17,17,17,.08);
+  font-family:var(--font-hand);
+}
+.sketch-paper span { font-family:var(--font-body); font-size:9px; }
+.sketch-paper b { display:block; margin-top:26px; font-size:18px; line-height:.9; transform:rotate(-3deg); }
+.sketch-paper i { position:absolute; bottom:12px; left:12px; font-style:normal; font-size:15px; }
+
+.sticky {
+  width:112px;
+  min-height:105px;
+  padding:14px;
+  font-family:var(--font-hand);
+  font-size:18px;
+  line-height:1;
+  box-shadow:3px 5px 9px rgba(17,17,17,.1);
+}
+.sticky span { display:block; margin-top:20px; font-size:11px; text-align:right; }
+.sticky--blue { background:var(--sky); }
+
+.archive-slip {
+  background:var(--ink);
+  color:var(--white);
+  padding:14px 18px;
+  font-family:var(--font-display);
+  font-size:11px;
+  letter-spacing:.12em;
+  box-shadow:4px 5px 0 rgba(17,17,17,.08);
+}
+.archive-slip small { font-family:var(--font-body); color:#aaa; letter-spacing:.03em; }
+
+.counter { right:29px; bottom:30px; color:var(--grey); }
+
+.stage__mobile-works { display:none; }
+
+@media (max-width: 720px) {
+  /* Desktop's free-floating drag collage needs a mouse and open space —
+     neither exists here, so it's replaced by a plain static grid
+     (.stage__mobile-works below) instead of trying to cram the same
+     absolutely-positioned pieces onto a small screen. */
+  .stage { height:auto; overflow:visible; padding-bottom:70px; }
+  .stage::before { opacity:.35; }
+  .stage__index { top:20px; right:20px; }
+  .stage__rule { display:none; }
+  .wordmark { position:relative; inset:auto; transform:none; padding-top:38svh; margin:auto; }
+  .wordmark h1 { font-size:24vw; }
+  .wordmark p { font-size:9px; margin-top:14px; }
+  .stage__aside { position:relative; left:0; bottom:0; margin:28px 20px 0; }
+  .home-note { display:none; }
+  .floater { display:none; }
+
+  .stage__mobile-works {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 12px;
+    margin:36px 20px 0;
+  }
+  .stage__mobile-card {
+    display:block;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .stage__mobile-card img {
+    display:block;
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    background:#ddd;
+  }
+  .stage__mobile-card span {
+    display:block;
+    margin-top:8px;
+    font:600 11px var(--font-display);
+  }
+  .stage__mobile-card small {
+    display:block;
+    color:var(--grey);
+    font-size:9px;
+    letter-spacing:.06em;
+  }
+
+  .counter { position:relative; right:auto; bottom:auto; margin:44px 20px 0; text-align:right; }
+}

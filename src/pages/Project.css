@@ -1,0 +1,299 @@
+.project {
+  min-height: 100vh;
+  padding: 30px 30px 80px;
+  background: var(--bg);
+}
+
+.project__back {
+  display: inline-block;
+  margin: 68px 0 25px clamp(30px, 11vw, 170px);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+
+.project__hero {
+  margin-left: clamp(30px, 11vw, 170px);
+  margin-right: clamp(20px, 4vw, 60px);
+  display: grid;
+  grid-template-columns: minmax(260px, .8fr) minmax(360px, 1.25fr);
+  gap: 7vw;
+  align-items: start;
+}
+
+.project__eyebrow {
+  margin: 0 0 12px;
+  color: var(--grey);
+  font-size: 10px;
+  letter-spacing: .15em;
+}
+
+.project__intro h1 {
+  margin: 0;
+  font: 700 clamp(45px, 7vw, 100px) / .82 var(--font-display);
+  letter-spacing: -.07em;
+  max-width: 650px;
+}
+
+.project__year {
+  margin-top: 17px;
+  font-size: 11px;
+  color: var(--grey);
+}
+
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 15px 0 30px;
+}
+
+.project__tags span {
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  font-size: 9px;
+}
+
+.project__description {
+  max-width: 390px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.project__cover {
+  margin: 0;
+  transform: rotate(1.2deg);
+}
+
+.project__cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #ddd;
+  box-shadow: 8px 10px 0 rgba(17, 17, 17, .06);
+}
+
+.project__cover figcaption,
+.project__story figcaption {
+  margin-top: 7px;
+  font-size: 9px;
+  color: var(--grey);
+  letter-spacing: .06em;
+}
+
+
+/* =========================
+   PROJECT DETAILS
+   ========================= */
+
+.project__details {
+  margin: 100px 0 50px clamp(30px, 11vw, 170px);
+  border-top: 1px solid var(--ink);
+  max-width: 1100px;
+}
+
+.project__details button {
+  width: 100%;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  font: 600 11px var(--font-display);
+  letter-spacing: .08em;
+  cursor: pointer;
+  text-align: left;
+}
+
+.project__detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 22px 0;
+}
+
+.project__detail-grid small {
+  color: var(--grey);
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.project__detail-grid p {
+  margin: 8px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* =========================
+   PROJECT STORY / IMAGES
+   ========================= */
+
+.project__story {
+  margin-left: clamp(30px, 11vw, 170px);
+  margin-right: clamp(20px, 4vw, 60px);
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 120px 24px;
+
+  align-items: start;
+}
+
+.project__image {
+  margin: 0;
+  width: 100%;
+}
+
+.project__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #ddd;
+}
+
+
+/* First image — BIG */
+.project__image--0 {
+  grid-column: 1 / -1;
+}
+
+
+/* Second image — still large, slightly offset */
+.project__image--1 {
+  grid-column: 2 / span 8;
+  margin-top: 0;
+}
+
+
+/* Third image — offset to the right */
+.project__image--2 {
+  grid-column: 5 / -1;
+  margin-top: 0;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.project__footer {
+  margin: 130px 0 0 clamp(30px, 11vw, 170px);
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 9px;
+  color: var(--grey);
+  letter-spacing: .08em;
+}
+
+.project__footer a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .25s;
+}
+
+.project__footer a:hover {
+  transform: translateX(4px);
+}
+
+.project__footer .project__next:hover {
+  transform: translateX(5px);
+}
+
+
+/* =========================
+   EMPTY PROJECT
+   ========================= */
+
+.project--empty {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project--empty a {
+  color: var(--ink);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 720px) {
+
+  .project {
+    padding: 20px 20px 60px;
+  }
+
+  .project__back {
+    margin: 20px 0 25px;
+  }
+
+  .project__hero {
+    margin-left: 0;
+    margin-right: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .project__intro h1 {
+    font-size: 17vw;
+  }
+
+  .project__cover {
+    width: 92%;
+    margin-left: 4%;
+  }
+
+  .project__details,
+  .project__story {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .project__details {
+    margin-top: 70px;
+  }
+
+  .project__detail-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .project__story {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .project__image,
+  .project__image--0,
+  .project__image--1,
+  .project__image--2 {
+    width: 100%;
+    margin: 0;
+  }
+
+  .project__image--1 {
+    width: 75%;
+    align-self: flex-end;
+  }
+
+  .project__footer {
+    margin-left: 0;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,49 @@
+.floater {
+  position: absolute;
+  cursor: grab;
+  z-index: 20;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.floater--dragging {
+  cursor: grabbing;
+  z-index: 80;
+}
+
+.floater--mobile {
+  cursor: pointer;
+}
+
+.floater__inner {
+  animation: drift 7s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), filter 220ms ease;
+  will-change: transform;
+}
+
+.floater--dragging .floater__inner {
+  animation: none;
+}
+
+.floater:not(.floater--mobile):hover .floater__inner {
+  animation-play-state: paused;
+  transform: translate(-3px, -5px) rotate(var(--rot, 0deg)) scale(1.035);
+  filter: drop-shadow(0 9px 10px rgba(17, 17, 17, .12));
+}
+
+.floater--highlighted .floater__inner {
+  animation-play-state: paused;
+  transform: translateY(-5px) rotate(var(--rot, 0deg)) scale(1.07);
+  filter: drop-shadow(0 9px 12px rgba(17, 17, 17, .16));
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-6px) rotate(calc(var(--rot, 0deg) + .7deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floater__inner { animation: none; }
+}

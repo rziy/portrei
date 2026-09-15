@@ -1,0 +1,82 @@
+.navbar{position:absolute;top:28px;left:28px;z-index:100}
+.navbar__toggle{display:none}
+.navbar__list{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.navbar__item{position:relative;display:flex;align-items:center;justify-content:space-between;min-width:94px;padding:8px 10px 8px 12px;background:var(--white);border:1px solid rgba(17,17,17,.72);color:var(--ink);text-decoration:none;font-size:10px;letter-spacing:.12em;line-height:1;box-shadow:2px 2px 0 rgba(17,17,17,.07);transform:rotate(var(--nav-rotation));transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,color .25s}
+.navbar__item i{margin-left:13px;font-style:normal;font-size:9px;opacity:0;transform:translate(-3px,3px);transition:opacity .18s,transform .18s}
+.navbar__item:nth-child(1){--nav-rotation:-1.2deg;margin-left:6px}
+.navbar__item:nth-child(2){--nav-rotation:1.1deg;margin-left:0}
+.navbar__item:nth-child(3){--nav-rotation:-.6deg;margin-left:10px}
+.navbar__item:nth-child(4){--nav-rotation:.9deg;margin-left:2px}
+.navbar__item:nth-child(5){--nav-rotation:-1.4deg;margin-left:13px}
+.navbar__item:hover,.navbar__item:focus-visible,.navbar__item--active{transform:translate(4px,-2px) rotate(0deg);box-shadow:4px 5px 0 rgba(17,17,17,.12);background:var(--ink);color:var(--white)}
+.navbar__item:hover i,.navbar__item:focus-visible i,.navbar__item--active i{opacity:1;transform:translate(0,0)}
+.navbar__item:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+@media(max-width:720px){
+  /* Mobile collapses the tag stack into a hamburger button that opens a
+     full-height sidebar drawer. This also happens to be what actually
+     fixes the earlier overlap bug for good: the button in flow has a
+     consistent height across every device (unlike a 5-item text stack
+     whose height could vary slightly with font rendering), and the drawer
+     itself is fixed/overlaid so it never pushes page content around. */
+  .navbar{position:relative;top:0;left:0;margin:0 0 20px;z-index:260}
+  .navbar__toggle{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    width:40px;
+    height:40px;
+    padding:0;
+    background:var(--white);
+    border:1px solid rgba(17,17,17,.72);
+    box-shadow:2px 2px 0 rgba(17,17,17,.07);
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+  .navbar__toggle span{display:block;width:18px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+  .navbar--open .navbar__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .navbar--open .navbar__toggle span:nth-child(2){opacity:0}
+  .navbar--open .navbar__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .navbar__backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(17,17,17,.45);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease;
+    z-index:200;
+  }
+  .navbar--open .navbar__backdrop{opacity:1;pointer-events:auto}
+
+  .navbar__list{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100dvh;
+    width:min(78vw,300px);
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+    background:var(--bg);
+    border-right:1px solid rgba(17,17,17,.72);
+    box-shadow:6px 0 24px rgba(17,17,17,.18);
+    padding:90px 24px 24px;
+    overflow-y:auto;
+    transform:translateX(-100%);
+    transition:transform .32s cubic-bezier(.2,.8,.2,1);
+    z-index:250;
+  }
+  .navbar--open .navbar__list{transform:translateX(0)}
+  .navbar__item{min-width:0;width:100%;padding:10px 12px;font-size:11px;transform:none}
+  .navbar__item:nth-child(1),.navbar__item:nth-child(2),.navbar__item:nth-child(3),.navbar__item:nth-child(4),.navbar__item:nth-child(5){margin-left:0}
+  /* Every other page gets its 20px inset from its own container padding.
+     .stage (Home) has none — its children each manage their own margins
+     instead — so the navbar needs an explicit inset here or it sits
+     flush against the corner. */
+  .stage .navbar{margin:20px 0 20px 20px}
+}
