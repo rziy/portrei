@@ -1,0 +1,20 @@
+    .home{min-height:100svh;background:var(--bg);color:var(--ink);display:flex;flex-direction:column}
+    .home__content {
+  width: min(900px, calc(100% - 60px));
+  margin: auto;
+  padding: 70px 0;
+}
+    .home__eyebrow{margin:0 0 24px;color:var(--grey);font-size:9px;letter-spacing:.16em}
+    .home h1 {
+  margin: 0;
+  font: 800 clamp(72px, 12vw, 150px)/0.9 var(--font-display);
+  letter-spacing: -0.08em;
+}
+    .home h1 span{color:var(--lime)}
+    .home__intro{margin:28px 0 34px 5px;max-width:330px;font:italic 18px/1.25 var(--font-hand);color:#333}
+    .home__cta{display:inline-flex;gap:18px;align-items:center;padding:12px 0;border-bottom:1px solid var(--ink);color:var(--ink);text-decoration:none;font:700 10px/1 var(--font-display);letter-spacing:.13em;transition:padding .2s,background .2s}
+    .home__cta:hover{padding:12px 12px;background:var(--sky)}
+    .home__cta span{font-size:15px}
+    .home__footer{display:flex;justify-content:space-between;padding:20px 30px;color:var(--grey);font-size:9px;letter-spacing:.12em}
+    .home__footer span:first-child{font:italic 13px var(--font-hand);letter-spacing:0;color:var(--ink)}
+    @media(max-width:720px){.home__content{width:calc(100% - 40px);padding:60px 0}.home h1{font-size:24vw}.home__intro{font-size:16px}.home__footer{padding:20px;font-size:8px}}

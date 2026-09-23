@@ -1,0 +1,29 @@
+:root {
+  --bg:#F6F5F2;
+  --ink:#111111;
+  --paper:#FFFFFF;
+  --white:#FFFFFF;
+  --grey:#A3A3A3;
+
+  --lime:#D7E26B;
+  --sky:#B7D6FF;
+  --pink:#F2C9D8;
+
+  --font-display:'Epilogue', sans-serif;
+  --font-body:'Epilogue', sans-serif;
+  --font-hand:'Lora', serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body,#root{margin:0;padding:0;min-height:100%;width:100%;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar,#root::-webkit-scrollbar{display:none;width:0;height:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit}
+::selection{background:var(--lime);color:var(--ink)}
+a,button{ -webkit-tap-highlight-color:transparent }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+}
+
+.page-transition{animation:pageIn .48s cubic-bezier(.2,.8,.2,1) both;transform-origin:50% 12%}@keyframes pageIn{from{opacity:0;transform:translateY(14px) scale(.992)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.page-transition{animation:none}}

@@ -1,0 +1,9 @@
+.navbar{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;width:100%;padding:26px 30px;border-bottom:1px solid rgba(17,17,17,.14);background:var(--bg)}
+.navbar__brand{color:var(--ink);text-decoration:none;font:800 15px/1 var(--font-display);letter-spacing:-.06em}
+.navbar__list{display:flex;align-items:center;gap:26px}
+.navbar__item{position:relative;color:var(--grey);text-decoration:none;font:600 9px/1 var(--font-display);letter-spacing:.14em;transition:color .2s ease}
+.navbar__item::after{content:'';position:absolute;left:0;right:0;bottom:-7px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.navbar__item:hover,.navbar__item:focus-visible,.navbar__item--active{color:var(--ink)}
+.navbar__item:hover::after,.navbar__item:focus-visible::after,.navbar__item--active::after{transform:scaleX(1)}
+.navbar__item:focus-visible{outline:none}
+@media(max-width:720px){.navbar{padding:20px}.navbar__list{gap:14px}.navbar__item{font-size:8px}.navbar__brand{font-size:14px}}

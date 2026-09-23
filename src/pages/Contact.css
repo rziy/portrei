@@ -1,0 +1,16 @@
+.contact{min-height:100vh;background:var(--bg)}
+.strikethrough {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.contact__hero{width:min(900px,calc(100% - 60px));margin:0 auto;padding:90px 0 80px;min-height:calc(100svh - 75px);display:flex;flex-direction:column}
+.contact__eyebrow{margin:0 0 20px;color:var(--grey);font-size:9px;letter-spacing:.16em}
+.contact h1{margin:0;font:800 clamp(58px,9vw,112px)/.82 var(--font-display);letter-spacing:-.08em}
+.contact__copy{max-width:520px;margin:38px 0 45px;font-size:15px;line-height:1.65}
+.contact__email{display:flex;justify-content:space-between;align-items:center;max-width:700px;padding:16px 0;border-block:1px solid var(--ink);color:var(--ink);text-decoration:none;font:700 clamp(17px,2.2vw,27px) var(--font-display);letter-spacing:-.03em;transition:padding .2s,background .2s}
+.contact__email:hover{padding-inline:12px;background:var(--sky)}
+.contact__bottom{margin-top:auto;padding-top:55px;display:grid;grid-template-columns:1fr 1fr 130px;gap:30px;align-items:end}
+.contact__bottom>div>span{color:var(--grey);font-size:8px;letter-spacing:.14em}.contact__bottom p{margin:8px 0 0;font-size:11px;line-height:1.7}.contact__bottom a{color:var(--ink);text-decoration:none}.contact__bottom a:hover{text-decoration:underline}
+.contact__stamp{width:110px;height:110px;border:1px solid var(--ink);border-radius:50%;display:grid;place-content:center;text-align:center;font:700 16px var(--font-display);transform:rotate(5deg)}
+.contact__stamp small{display:block;max-width:70px;margin:5px auto 0;color:var(--grey);font-size:6px;line-height:1.4;letter-spacing:.08em}
+@media(max-width:720px){.contact__hero{width:calc(100% - 40px);padding:60px 0;min-height:calc(100svh - 65px)}.contact h1{font-size:18vw}.contact__copy{font-size:14px;margin:30px 0 38px}.contact__bottom{grid-template-columns:1fr 1fr;padding-top:45px}.contact__stamp{grid-column:1/-1;width:95px;height:95px}}
